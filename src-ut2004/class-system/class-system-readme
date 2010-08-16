@@ -1,0 +1,20 @@
+Class Based Mod Support
+by Brendon Robinson <brobinson9999@gmail.com>
+
+INTRODUCTION
+------------
+
+These classes provide the back-end support for a generic class-based game type on UT2004. It is a mutator which adds the support to any gametype. 
+
+A UT3 version exists but is stored separately. In UT3 if you want it to alter the class of Pawn the player uses, the gametype needs a small modification. If you only want to change values on the Pawn, and give Inventory items such as weapons it works without any changes to the gametype. The UT2004 version does not have this requirement.
+
+USAGE
+-----
+
+In this implementation, the class that a player will use is selected using console commands. The mutator collects these commands through the "mutate" facility which already has built-in support for netplay.
+
+The format of the console command is:
+
+  mutate setPlayerClass <new-class>
+
+where new-class is the full package name of the UnrealScript class. So for example, in the included sample classes, a player can set themself to spawn as the "light" class the next time they respawn by typing in the console command "mutate setPlayerClass goldmine.ClassBasedClass_Light".
