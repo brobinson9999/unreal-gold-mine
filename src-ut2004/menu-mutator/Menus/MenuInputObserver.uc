@@ -11,11 +11,10 @@ simulated function setMenu(MenuTest newMenu) {
 simulated function listMenuItems(MenuTest menu) {
   local int i;
   local MenuTest.MenuState currentState;
-  local vector nextItemLocation;
   
   currentState = menu.getCurrentState();
   for (i=0;i<currentState.outgoingIndices.length;i++) {
-    log(i$") "$menu.states[currentState.outgoingIndices].stateName);
+    log(i$") "$menu.states[currentState.outgoingIndices[i]].stateName);
   }
 }
 
