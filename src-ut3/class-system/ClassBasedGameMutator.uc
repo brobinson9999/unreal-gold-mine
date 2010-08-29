@@ -1,4 +1,4 @@
-class UTUL_ClassBasedGameMutator extends Mutator;
+class ClassBasedGameMutator extends Mutator;
 
 var private AssociationListActor al;
 

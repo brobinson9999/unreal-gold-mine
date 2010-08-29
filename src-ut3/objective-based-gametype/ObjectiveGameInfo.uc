@@ -5,10 +5,10 @@ function bool wantsPickups(UTBot B) {
 }
 
 function class<Pawn> getDefaultPlayerClass(Controller c) {
-  local UTUL_ClassBasedGameMutator cbgm;
+  local ClassBasedGameMutator cbgm;
   local class<Pawn> cbgmResult;
   
-  foreach dynamicActors(class'UTUL_ClassBasedGameMutator', cbgm) {
+  foreach dynamicActors(class'ClassBasedGameMutator', cbgm) {
     cbgmResult = cbgm.getPawnClassForPlayer(c);
     if (cbgmResult != none)
       return cbgmResult;
@@ -33,5 +33,5 @@ defaultproperties
 //  bForceAllRed=true
 //  bPlayersBalanceTeams=false
   defaultInventory.empty
-  defaultInventory(0)=class'UTWeap_TauPulseCarbine'
+//  defaultInventory(0)=class'UTWeap_TauPulseCarbine'
 }
