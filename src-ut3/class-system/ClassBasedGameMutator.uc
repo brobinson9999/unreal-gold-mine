@@ -22,6 +22,7 @@ simulated function mutate(string mutateString, PlayerController sender) {
       if (newClass != none)
         newFactory = new newClass;
       setPlayerClass(sender, newFactory);
+      class'PlatformStatics'.static.platformLog("Class successfully set to "$newFactory);
     } else
       class'PlatformStatics'.static.platformLog("Usage: setPlayerClass <class-name>");
   }
