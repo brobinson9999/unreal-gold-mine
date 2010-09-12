@@ -83,8 +83,10 @@ defaultproperties
 {
   ProjFlightTemplate=ParticleSystem'WP_RocketLauncher.Effects.P_WP_RocketLauncher_Smoke_Trail'
 
-  ProjExplosionTemplate=ParticleSystem'WP_RocketLauncher.Effects.P_WP_RocketLauncher_RocketExplosion'
+  ProjExplosionTemplate=ParticleSystem'WP_FlakCannon.Effects.P_WP_Flak_Alt_Explosion'
   ExplosionLightClass=class'UTGame.UTRocketExplosionLight'
+
+  rotationRate=(pitch=-16384)
 
   speed=700
   MaxSpeed=1000.0
@@ -108,5 +110,5 @@ defaultproperties
   bNetTemporary=False
   bWaitForEffects=false
 
-  CustomGravityScaling=0.5
+//  CustomGravityScaling=0.5
 }

@@ -21,15 +21,36 @@ simulated function class<Pawn> getPawnClass() {
 
 simulated function setPawnProperties(Pawn other) {
   local int i;
-  local Inventory newInventory;
   
-  other.health = health;
   other.healthMax = health;
   
-  for (i=0;i<pawnInventory.length;i++) {
-    newInventory = other.spawn(pawnInventory[i],,,other.location,other.rotation);
-    newInventory.giveTo(other);
+  if (!pawnHasInventory(other, class'InitialSetupToken')) {
+    givePawnInventory(other, class'InitialSetupToken');
+
+    other.health = health;
+
+    for (i=0;i<pawnInventory.length;i++) {
+      givePawnInventory(other, pawnInventory[i]);
+    }
   }
+}
+
+simulated function bool pawnHasInventory(Pawn other, class<Inventory> inventoryClass) {
+  local Inventory dummy;
+  
+  for (dummy = other.inventory;dummy != none;dummy = dummy.inventory) {
+    if (classIsChildOf(dummy.class, inventoryClass))
+      return true;
+  }
+    
+  return false;
+}
+
+simulated function givePawnInventory(Pawn other, class<Inventory> inventoryClass) {
+  local Inventory newInventory;
+
+  newInventory = other.spawn(inventoryClass,,,other.location,other.rotation);
+  newInventory.giveTo(other);
 }
 
 defaultproperties
