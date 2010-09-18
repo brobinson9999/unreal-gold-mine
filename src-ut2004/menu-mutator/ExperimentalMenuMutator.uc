@@ -4,8 +4,12 @@ simulated function mutate(string mutateString, PlayerController sender) {
   local array<string> msParts;
   local class<MenuTest> newClass;
   local MenuTest newMenu;
+
   local MenuInputObserver mio;
   local InputDriver inputDriver;
+
+  local MenuCanvasObserver mco;
+  local CanvasDriver canvasDriver;
   
   msParts = class'PlatformStatics'.static.platformSplitString(mutateString, " ");
   
@@ -20,6 +24,11 @@ simulated function mutate(string mutateString, PlayerController sender) {
         mio = new class'MenuInputObserver';
         inputDriver.addObserver(mio);
         mio.setMenu(newMenu);
+        
+        canvasDriver = class'CanvasDriver'.static.installNewCanvasDriver(sender);
+        mco = new class'MenuCanvasObserver';
+        canvasDriver.addObserver(mco);
+        mco.setMenu(newMenu);
       }
     } else
       class'PlatformStatics'.static.platformLog("Usage: menu <menu-class-name>");
