@@ -23,11 +23,6 @@ auto state Pickup
           vehicle.pitchUpLimit = vehicle.weapons[vehicle.activeWeapon].pitchUpLimit;
           vehicle.pitchDownLimit = vehicle.weapons[vehicle.activeWeapon].pitchDownLimit;
         }
-
-//            if ( P.GiveHealth(HealingAmount, GetHealMax(P)) || (bSuperHeal && !Level.Game.bTeamGame) ) {
-//                AnnouncePickup(P);
-//                SetRespawn();
-//            }
       }
     }
   }

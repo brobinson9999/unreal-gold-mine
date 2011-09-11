@@ -20,12 +20,12 @@ simulated function mutate(string mutateString, PlayerController sender) {
         newMenu = spawn(newClass);
         newMenu.setCurrentStateIndex(0);
         
-        inputDriver = class'InputDriver'.static.installNewInputDriver(sender);
+        inputDriver = class'InputDriver'.static.getSingletonInputDriver(sender);
         mio = new class'MenuInputObserver';
         inputDriver.addObserver(mio);
         mio.setMenu(newMenu);
         
-        canvasDriver = class'CanvasDriver'.static.installNewCanvasDriver(sender);
+        canvasDriver = class'CanvasDriver'.static.getSingletonCanvasDriver(sender);
         mco = new class'MenuCanvasObserver';
         canvasDriver.addObserver(mco);
         mco.setMenu(newMenu);
